@@ -14,6 +14,7 @@ namespace EmployeeWageComputation
                 Console.WriteLine("3. Part/Full time employee wage");
                 Console.WriteLine("4. Part/Full time employee wage using switch case");
                 Console.WriteLine("5. Calculation of wage for a month");
+                Console.WriteLine("6. Calculation till total working hrs or days condition reached");
 
                 Console.WriteLine("0. Exit");
                 Console.Write("Enter your choice : ");
@@ -39,6 +40,10 @@ namespace EmployeeWageComputation
                     case 5:
                         CalcWageForMonth calcWageForMonth = new CalcWageForMonth();
                         calcWageForMonth.WageForMonth();
+                        break;
+                    case 6:
+                        DayMonthCondition dayMonthCondition = new DayMonthCondition();
+                        dayMonthCondition.Condition();
                         break;
                 }
             } while (choice != 0);
