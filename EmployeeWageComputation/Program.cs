@@ -11,6 +11,7 @@ namespace EmployeeWageComputation
             {
                 Console.WriteLine("\n1. Employee Attendance");
                 Console.WriteLine("2. Calculate Daily Employee Wage");
+                Console.WriteLine("3. Part/Full time employee wage");
 
                 Console.WriteLine("0. Exit");
                 Console.Write("Enter your choice : ");
@@ -24,6 +25,10 @@ namespace EmployeeWageComputation
                     case 2:
                         CalcDailyEmpWage calcDailyEmpWage = new CalcDailyEmpWage();
                         calcDailyEmpWage.DailyWage();
+                        break;
+                    case 3:
+                        PartTimeEmpWage partTimeEmpWage = new PartTimeEmpWage();
+                        partTimeEmpWage.PartTime();
                         break;
                 }
             } while (choice != 0);
