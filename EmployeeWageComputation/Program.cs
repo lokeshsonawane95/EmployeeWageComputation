@@ -16,6 +16,7 @@ namespace EmployeeWageComputation
                 Console.WriteLine("5. Calculation of wage for a month");
                 Console.WriteLine("6. Calculation till total working hrs or days condition reached");
                 Console.WriteLine("7. Calculation using class method and class variables");
+                Console.WriteLine("8. Calculation for multiple companies");
                 Console.WriteLine("0. Exit");
                 Console.Write("Enter your choice : ");
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -48,6 +49,10 @@ namespace EmployeeWageComputation
                     case 7:
                         ClassMethodAndVars classMethodAndVars = new ClassMethodAndVars();
                         classMethodAndVars.EmpWage();
+                        break;
+                    case 8:
+                        MultipleCompanies multipleCompanies = new MultipleCompanies();
+                        multipleCompanies.Companies();
                         break;
                 }
             } while (choice != 0);
