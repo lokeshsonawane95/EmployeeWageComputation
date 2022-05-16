@@ -17,6 +17,7 @@ namespace EmployeeWageComputation
                 Console.WriteLine("6. Calculation till total working hrs or days condition reached");
                 Console.WriteLine("7. Calculation using class method and class variables");
                 Console.WriteLine("8. Calculation for multiple companies");
+                Console.WriteLine("9. Save total wage for each company");
                 Console.WriteLine("0. Exit");
                 Console.Write("Enter your choice : ");
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -53,6 +54,13 @@ namespace EmployeeWageComputation
                     case 8:
                         MultipleCompanies multipleCompanies = new MultipleCompanies();
                         multipleCompanies.Companies();
+                        break;
+                    case 9:
+                        SaveWageForEachCompany save = new SaveWageForEachCompany();
+                        save.SaveForEachCompany();
+                        break;
+                    default:
+                        Console.WriteLine("Enter from the choices given");
                         break;
                 }
             } while (choice != 0);
