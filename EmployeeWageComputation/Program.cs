@@ -9,16 +9,17 @@ namespace EmployeeWageComputation
             int choice;
             do
             {
-                Console.WriteLine("\n1. Employee Attendance");
-                Console.WriteLine("2. Calculate Daily Employee Wage");
-                Console.WriteLine("3. Part/Full time employee wage");
-                Console.WriteLine("4. Part/Full time employee wage using switch case");
-                Console.WriteLine("5. Calculation of wage for a month");
-                Console.WriteLine("6. Calculation till total working hrs or days condition reached");
-                Console.WriteLine("7. Calculation using class method and class variables");
-                Console.WriteLine("8. Calculation for multiple companies");
-                Console.WriteLine("9. Save total wage for each company");
-                Console.WriteLine("0. Exit");
+                Console.WriteLine("\n 1. Employee Attendance");
+                Console.WriteLine(" 2. Calculate Daily Employee Wage");
+                Console.WriteLine(" 3. Part/Full time employee wage");
+                Console.WriteLine(" 4. Part/Full time employee wage using switch case");
+                Console.WriteLine(" 5. Calculation of wage for a month");
+                Console.WriteLine(" 6. Calculation till total working hrs or days condition reached");
+                Console.WriteLine(" 7. Calculation using class method and class variables");
+                Console.WriteLine(" 8. Calculation for multiple companies");
+                Console.WriteLine(" 9. Save total wage for each company");
+                Console.WriteLine("10. Manage wage for multiple companies");
+                Console.WriteLine(" 0. Exit");
                 Console.Write("Enter your choice : ");
                 choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -58,6 +59,10 @@ namespace EmployeeWageComputation
                     case 9:
                         SaveWageForEachCompany save = new SaveWageForEachCompany();
                         save.SaveForEachCompany();
+                        break;
+                    case 10:
+                        ManageMultipleCompanies manage = new ManageMultipleCompanies();
+                        manage.ManageMultiple();
                         break;
                     default:
                         Console.WriteLine("Enter from the choices given");
