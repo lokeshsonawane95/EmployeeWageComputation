@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace EmployeeWageComputation
 {
+    public interface IComputeEmpWage
+    {
+        //Declaring the methods which we have to define in EmpWageBuilderArray class
+        public void AddCompanyEmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHrsInMonth);
+        public void ComputeEmpWage();
+    }
+
     internal class CompanyEmpWage
     {
         //Using instance variables instead of parameters as per Use Case requirements
