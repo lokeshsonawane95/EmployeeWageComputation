@@ -11,35 +11,47 @@ namespace EmployeeWageComputation
         const int isFullTime = 1;
         const int isPartTime = 2;
 
-        int numOfCompany = 0;
-        CompanyEmpWage[] companyEmpWageArray;
+        //int numOfCompany = 0;
+        //Declaring companyEmpWage
+        public List<CompanyEmpWage> companyEmpWageList;
 
         public EmpWageBuilderArray()
         {
-            this.companyEmpWageArray = new CompanyEmpWage[8];
+            this.companyEmpWageList = new List<CompanyEmpWage>();
         }
 
         //Execution starts here
         //Values are passed to the instance
         public void AddCompanyEmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHrsInMonth)
         {
-            companyEmpWageArray[this.numOfCompany] = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHrsInMonth);
+            CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHrsInMonth);
+            this.companyEmpWageList.Add(companyEmpWage);
+
+            //companyEmpWageArrayList[this.numOfCompany] = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHrsInMonth);
 
             //After values passed to a particular instance the index numOfCompany increses
-            numOfCompany++;
+            //numOfCompany++;
         }
 
         //Passing each instance separately for calculation
         public void ComputeEmpWage()
         {
-            for (int i = 0; i < numOfCompany; i++)
+            foreach (CompanyEmpWage companyEmpWage in companyEmpWageList)
             {
-                //Passing each instance for further calculation
-                companyEmpWageArray[i].SetTotalEmpWage(this.ComputeEmpWage(this.companyEmpWageArray[i]));
+                //Passing each instance for further calcuation
+                companyEmpWage.SetTotalEmpWage(this.ComputeEmpWage(companyEmpWage));
 
                 //Displaying values calculated for each instance
-                Console.WriteLine(this.companyEmpWageArray[i].DisplayEmpWage());
+                Console.WriteLine(companyEmpWage.DisplayEmpWage());
             }
+            /*for (int i = 0; i < numOfCompany; i++)
+            {
+                //Passing each instance for further calculation
+                companyEmpWageArrayList[i].SetTotalEmpWage(this.ComputeEmpWage(this.companyEmpWageArrayList[i]));
+
+                //Displaying values calculated for each instance
+                Console.WriteLine(this.companyEmpWageArrayList[i].DisplayEmpWage());
+            }*/
         }
 
         //Actual calculation logic
