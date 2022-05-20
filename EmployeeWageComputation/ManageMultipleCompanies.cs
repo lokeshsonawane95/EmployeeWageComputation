@@ -12,12 +12,19 @@ namespace EmployeeWageComputation
         const int isPartTime = 2;
 
         //int numOfCompany = 0;
-        //Declaring companyEmpWage
+
+        //Declaring companyEmpWage List
         public List<CompanyEmpWage> companyEmpWageList;
+
+        //Declaring Dictionary to store multiple CompanyEmpWage instances
+        Dictionary<string, CompanyEmpWage> companyEmpWageDictionary;
 
         public EmpWageBuilderArray()
         {
             this.companyEmpWageList = new List<CompanyEmpWage>();
+
+            //Adding company to dictionary as a key CompanyEmpWage instance as a value
+            this.companyEmpWageDictionary = new Dictionary<string, CompanyEmpWage>();
         }
 
         //Execution starts here
@@ -26,6 +33,8 @@ namespace EmployeeWageComputation
         {
             CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHrsInMonth);
             this.companyEmpWageList.Add(companyEmpWage);
+
+            companyEmpWageDictionary.Add(company, companyEmpWage);
 
             //companyEmpWageArrayList[this.numOfCompany] = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHrsInMonth);
 
@@ -83,6 +92,12 @@ namespace EmployeeWageComputation
             }
             return totalEmpHrs * companyEmpWage.empRatePerHour;
         }
+
+        //To get Total Wage
+        public int GetTotalWage(string company)
+        {
+            return companyEmpWageDictionary[company].totalEmpWage;
+        }
     }
 
     //Creating driver code class in same file to prevent ambiguity
@@ -97,7 +112,11 @@ namespace EmployeeWageComputation
             empWageBuilder.AddCompanyEmpWage("Microsoft", 32, 22, 110);
             empWageBuilder.AddCompanyEmpWage("Google", 38, 20, 100);
 
+            //Calculating for each company
             empWageBuilder.ComputeEmpWage();
+
+            //Quering about total wage by company here we queried for the total wage of company Microsoft
+            Console.WriteLine("Total wage for Microsoft company : " + empWageBuilder.GetTotalWage("Microsoft"));
         }
     }
 }
